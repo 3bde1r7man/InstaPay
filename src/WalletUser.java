@@ -17,10 +17,11 @@ public class WalletUser extends User {
 
     public void LoadProfile() {
         System.out.println("username: " + userName);
-        System.out.println("balance: " + balance);
+        // System.out.println("balance: " + balance);
         System.out.println("1. pay bill");
         System.out.println("2. transfer to Wallet");
         System.out.println("3. transfer to Instapay");
+        System.out.println("4. exit");
 
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
@@ -42,8 +43,12 @@ public class WalletUser extends User {
                 System.out.println("Enter phone number: ");
                 String receivedPhoneNum = sc.next();
                 System.out.println("Enter amount: ");
-                double amount1 = sc.nextDouble();
-                transfer = new TransferToWallet(receivedPhoneNum, amount1);
+                double amount = sc.nextDouble();
+                if (amount > balance) {
+                    System.out.println("Insufficient balance");
+                    break;
+                }
+                transfer = new TransferToWallet(receivedPhoneNum, amount);
                 transfer.transfer();
                 break;
             }
@@ -54,11 +59,17 @@ public class WalletUser extends User {
                 System.out.println("Enter username: ");
                 String receivedUserName = sc.next();
                 System.out.println("Enter amount: ");
-                double amount2 = sc.nextDouble();
-                transfer = new TransferToInstapay(receivedPhoneNum1, receivedUserName, amount2);
+                double amount = sc.nextDouble();
+                if (amount > balance) {
+                    System.out.println("Insufficient balance");
+                    break;
+                }
+                transfer = new TransferToInstapay(receivedPhoneNum1, receivedUserName, amount);
                 transfer.transfer();
                 break;  
             }
+            case 4:
+                System.exit(0);
             default:
                 System.out.println("Invalid choice");
         }

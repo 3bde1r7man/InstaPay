@@ -8,4 +8,7 @@ public abstract class Bill {
     public Bill getBillContent(User u) {
         return null;
     }
+    public double getAmount() {
+        return amount;
+    }
 }

@@ -20,12 +20,12 @@ public class BankUser extends User {
     }
     public void LoadProfile(){
         System.out.println("username: " + userName);
-        System.out.println("balance: " + balance);
+        // System.out.println("balance: " + balance);
         System.out.println("1. pay bill");
         System.out.println("2. transfer to Bank");
         System.out.println("3. transfer to Instapay");
         System.out.println("4. transfer to Wallet");
-        
+        System.out.println("5. exit");
         Scanner sc = new Scanner(System.in);
         
         int choice = sc.nextInt();
@@ -47,8 +47,12 @@ public class BankUser extends User {
                 System.out.println("Enter bank account number: ");
                 String receivedBankAccNum = sc.next();
                 System.out.println("Enter amount: ");
-                double amount1 = sc.nextDouble();
-                transfer = new TransferToBank(receivedBankAccNum, amount1);
+                double amount = sc.nextDouble();
+                if (amount > balance) {
+                    System.out.println("Insufficient balance");
+                    break;
+                }
+                transfer = new TransferToBank(receivedBankAccNum, amount);
                 transfer.transfer();
                 break;
             }
@@ -59,8 +63,12 @@ public class BankUser extends User {
                 System.out.println("Enter username: ");
                 String receivedUserName = sc.next();
                 System.out.println("Enter amount: ");
-                double amount2 = sc.nextDouble();
-                transfer = new TransferToInstapay(receivedPhoneNum1, receivedUserName, amount2);
+                double amount = sc.nextDouble();
+                if (amount > balance) {
+                    System.out.println("Insufficient balance");
+                    break;
+                }
+                transfer = new TransferToInstapay(receivedPhoneNum1, receivedUserName, amount);
                 transfer.transfer();
                 break;  
             }
@@ -69,11 +77,17 @@ public class BankUser extends User {
                 System.out.println("Enter phone number: ");
                 String receivedPhoneNum = sc.next();
                 System.out.println("Enter amount: ");
-                double amount3 = sc.nextDouble();
-                transfer = new TransferToWallet(receivedPhoneNum, amount3);
+                double amount = sc.nextDouble();
+                if (amount > balance) {
+                    System.out.println("Insufficient balance");
+                    break;
+                }
+                transfer = new TransferToWallet(receivedPhoneNum, amount);
                 transfer.transfer();
                 break;
             }
+            case 5:
+                System.exit(0);
             default:
                 System.out.println("Invalid choice");
         }

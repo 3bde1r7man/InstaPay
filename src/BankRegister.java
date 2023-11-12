@@ -16,12 +16,9 @@ public class BankRegister implements Register {
         BankAPI bankAPI = new BankAPI();
         if(!bankAPI.validBankACC(bankAccNum, phoneNum)){
             System.out.println("Invalid Bank Account");
-            sc.close();
             return null;
         }
         BankUser user = new BankUser(userName, password, bankAccNum, balance, phoneNum);
-        
-        sc.close();
         return user;
     }
 }

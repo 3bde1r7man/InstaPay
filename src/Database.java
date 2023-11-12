@@ -4,18 +4,16 @@ import java.sql.*;
 
 
 public class Database {
-    ArrayList<Bill> bills = new ArrayList<Bill>();
     ArrayList<User> users = new ArrayList<User>();
     public void saveUser(User user){
         users.add(user);
     }
-    public void saveBill(Bill bill){
-        bills.add(bill);
-    }
     public User getUser(String userName){
-        return null;
-    }
-    public Bill getBill(String userName){
+        for(User user: users){
+            if(user.getUserName().equals(userName)){
+                return user;
+            }
+        }
         return null;
     }
     // Database(){

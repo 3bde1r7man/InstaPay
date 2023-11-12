@@ -14,11 +14,9 @@ public class WalletRegister implements Register {
         WalletAPI walletAPI = new WalletAPI();
         if(!walletAPI.validWalletACC(phoneNum)){
             System.out.println("Invalid Wallet Account");
-            sc.close();
             return null;
         }
         WalletUser user = new WalletUser(userName, password, balance, phoneNum);
-        sc.close();
         return user;
     }
 }
