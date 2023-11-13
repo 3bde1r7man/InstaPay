@@ -9,8 +9,8 @@ public class BankRegister implements Register {
         String password = sc.next();
         System.out.println("Enter bank account number: ");
         String bankAccNum = sc.next();
-        System.out.println("Enter balance: ");
-        double balance = sc.nextDouble();
+        // System.out.println("Enter balance: ");
+        // double balance = sc.nextDouble();
         System.out.println("Enter phone number: ");
         String phoneNum = sc.next();
         BankAPI bankAPI = new BankAPI();
@@ -18,7 +18,7 @@ public class BankRegister implements Register {
             System.out.println("Invalid Bank Account");
             return null;
         }
-        BankUser user = new BankUser(userName, password, bankAccNum, balance, phoneNum);
+        BankUser user = new BankUser(userName, password, bankAccNum, phoneNum);
         return user;
     }
 }

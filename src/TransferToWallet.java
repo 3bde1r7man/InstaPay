@@ -6,6 +6,25 @@ public class TransferToWallet implements WalletTransfer, BankTransfer {
         this.amount = amount;
     }
     public void transfer() {
-        //transfer to wallet
+        WalletProvider WTransfer = new WalletProvider();
+        InstaPay insta=new InstaPay();
+        if(WTransfer.validateWalletAcc(receivedPhoneNum)){
+            if(amount<=insta.maxAmountDaily)
+            {
+                if(WTransfer.transferMoney(receivedPhoneNum, amount))
+                {
+                    System.out.println("Transaction Successfully");
+                }
+                else{
+                    System.err.println("Transaction Error");
+                }
+            }
+            else{
+                System.err.println("Maximum limit amount exceeded");
+            }
+        }
+        else{
+            System.err.println("Account not valid!");
+        }
     }
 }

@@ -6,6 +6,28 @@ public class TransferToBank implements BankTransfer {
         this.amount = amount;
     }
     public void transfer() {
-        //transfer to bank
+        InstaPay insta=new InstaPay();
+        BankProvider BTransfer=new BankProvider();
+        if(BTransfer.validateBankAcc(receivedBankAccNum))
+        {
+            if(amount<= insta.maxAmountDaily)
+            {
+                
+                if(BTransfer.transferMoney(receivedBankAccNum,amount))
+                {
+                    System.out.println("Transaction Successfully");
+                }
+                else{
+                    System.err.println("Transaction Error");
+                }
+            }
+            else{
+                System.err.println("Maximum amount transaction exceeded");  
+            }
+        }
+        else{
+            System.err.println("Account not valid!");
+        }
+        
     }
 }
