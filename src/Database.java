@@ -16,6 +16,14 @@ public class Database {
         }
         return null;
     }
+    public boolean isUniqueUserName(String userName){
+        for(User user: users){
+            if(user.getUserName().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
     // Database(){
     //     try {
     //         Connection conn = DriverManager.getConnection("jdbc:sqlite:db.sqlite3");
