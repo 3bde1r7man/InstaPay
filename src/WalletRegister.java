@@ -38,6 +38,13 @@ public class WalletRegister extends Register {
             }
             break;
         }
+        System.out.println("Enter the received code: ");
+        String receivedCode = sc.next();
+        OTPService otp = new OTPService();
+        if(!receivedCode.equals(otp.generateOTP())){
+            System.out.println("Invalid code");
+            return null;
+        }
         WalletUser user = new WalletUser(userName, password, phoneNum);
         return user;
     }
