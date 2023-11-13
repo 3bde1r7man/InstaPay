@@ -5,15 +5,12 @@ public class WalletRegister extends Register {
         Database db = new Database();
         Scanner sc = new Scanner(System.in);
         String userName, password, phoneNum;
-        double balance;
         while (true){
             System.out.println("Enter username: ");
             userName = sc.next();
             // @Abc1234
             System.out.println("Enter password: ");
             password = sc.next();
-            System.out.println("Enter wallet balance: ");
-            balance = sc.nextDouble();
             System.out.println("Enter phone number: ");
             phoneNum = sc.next();
             WalletAPI walletAPI = new WalletAPI();
@@ -38,7 +35,7 @@ public class WalletRegister extends Register {
                 break;
             }
         }
-        WalletUser user = new WalletUser(userName, password, balance, phoneNum);
+        WalletUser user = new WalletUser(userName, password, phoneNum);
         return user;
     }
 }

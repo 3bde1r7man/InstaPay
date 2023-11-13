@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class InstaPay {
     public Database database;
+    public double maxAmountDaily=120000;
     private Register register;
     public void setRegister(Register r) {
         this.register = r;
@@ -56,6 +57,7 @@ public class InstaPay {
                         }
                         default:
                             System.out.println("Invalid choice");
+                            break;
                     }
                     break;
                 }
@@ -79,6 +81,7 @@ public class InstaPay {
                     break;
                 default:
                     System.out.println("Invalid choice");
+                    break;
             }
             sc.close();
         }

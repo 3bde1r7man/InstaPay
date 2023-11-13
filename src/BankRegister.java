@@ -5,7 +5,6 @@ public class BankRegister extends Register {
         Database db = new Database();
         Scanner sc = new Scanner(System.in);
         String userName, password, bankAccNum, phoneNum;
-        double balance;
         while (true){
             System.out.println("Enter username: ");
             userName = sc.next();
@@ -14,8 +13,6 @@ public class BankRegister extends Register {
             password = sc.next();
             System.out.println("Enter bank account number: ");
             bankAccNum = sc.next();
-            System.out.println("Enter balance: ");
-            balance = sc.nextDouble();
             System.out.println("Enter phone number: ");
             phoneNum = sc.next();
             BankAPI bankAPI = new BankAPI();
@@ -38,9 +35,9 @@ public class BankRegister extends Register {
             }
             if (isStrongPassword(password) && isEGYPhoneNum(phoneNum) && db.isUniqueUserName(userName)) {
                 break;
-            }
+            }       
         }
-        BankUser user = new BankUser(userName, password, bankAccNum, balance, phoneNum);
+        BankUser user = new BankUser(userName, password, bankAccNum, phoneNum);
         return user;
     }
 }
