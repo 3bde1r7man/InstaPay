@@ -31,12 +31,7 @@ public class WalletRegister extends Register {
                 System.out.println("Phone number must be 11 digits and start with 01.");
                 continue;
             }
-            break;
-        }
-        while (true) {
-            System.out.println("Enter phone number: ");
-            phoneNum = sc.next();
-            WalletAPI walletAPI = new WalletAPI();
+            WalletProvider walletAPI = new WalletProvider();
             if(!walletAPI.validWalletACC(phoneNum)){
                 System.out.println("Invalid Wallet Account");
                 return null;

@@ -33,7 +33,7 @@ public class BankRegister extends Register {
         while (true) {
             System.out.println("Enter bank account number: ");
             bankAccNum = sc.next();
-            BankAPI bankAPI = new BankAPI();
+            BankProvider bankAPI = new BankProvider();
             if(!bankAPI.validBankACC(bankAccNum, phoneNum)){
                 System.out.println("Invalid Bank Account");
                 return null;
