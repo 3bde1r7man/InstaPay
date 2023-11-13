@@ -16,6 +16,14 @@ public class Database {
         }
         return null;
     }
+    public boolean validUser(String userName){
+        for(User user: users){
+            if(user.getUserName().equals(userName)){
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean isUniqueUserName(String userName){
         for(User user: users){
             if(user.getUserName().equals(userName)){

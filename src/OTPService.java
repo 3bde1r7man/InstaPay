@@ -1,5 +1,5 @@
 public class OTPService {
-    Integer generateOTP() {
-        return 1234;
+    String generateOTP() {
+        return "1234";
     } 
 }

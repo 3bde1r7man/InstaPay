@@ -1,4 +1,8 @@
 public class BankProvider {
+    public boolean validBankACC(String bankAccNum, String phoneNum) {
+        return true;
+    }
+
     boolean transferMoney(String to, double amount) {
         return true;
     }
