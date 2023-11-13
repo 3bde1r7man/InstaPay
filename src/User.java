@@ -2,6 +2,7 @@ public abstract class User {
     protected String userName;
     protected String password;
     protected String phoneNum;
+    protected String accType;
     //protected double balance;
 
     // public void payBill(Bill bill) {

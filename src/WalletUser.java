@@ -7,6 +7,7 @@ public class WalletUser extends User {
         this.userName = userName;
         this.password = password;
         //this.balance = balance;
+        this.accType = "Wallet";
         this.phoneNum = phoneNum;
     }
     public void setWalletTransfer(WalletTransfer wt) {
@@ -81,7 +82,7 @@ public class WalletUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToInstapay(receivedUserName, amount);
+                transfer = new TransferToInstapay("Wallet", receivedUserName, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;  
