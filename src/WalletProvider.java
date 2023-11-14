@@ -1,4 +1,8 @@
 public class WalletProvider {
+    public boolean validWalletACC(String phoneNum) {
+        return true;
+    }
+    
     boolean transferMoney(String to, double amount) {
         return true;
     }

@@ -11,6 +11,7 @@ public class BankUser extends User {
         this.userName = userName;
         this.password = password;
         this.bankAccNum = bankAccNum;
+        this.accType = "Bank";
         //this.balance = balance;
         this.phoneNum = phoneNum;
     }
@@ -98,7 +99,7 @@ public class BankUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToInstapay(receivedUserName, amount);
+                transfer = new TransferToInstapay("Bank" ,receivedUserName, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;  
