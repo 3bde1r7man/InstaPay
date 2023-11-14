@@ -40,10 +40,10 @@ public class BankRegister extends Register {
             }
             break;
         }
+        OTPService otp = new OTPService(phoneNum);
         System.out.println("Enter the received code: ");
         String receivedCode = sc.next();
-        OTPService otp = new OTPService();
-        if(!receivedCode.equals(otp.generateOTP())){
+        if(!otp.verifyOTP(receivedCode)){
             System.out.println("Invalid code");
             return null;
         }
