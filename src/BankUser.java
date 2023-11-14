@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class BankUser extends User {
     private String bankAccNum;
-    private String phoneNum;
     private BankTransfer transfer;
     private BankProvider bank=new BankProvider();
 
@@ -82,7 +81,7 @@ public class BankUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToBank(receivedBankAccNum, amount);
+                transfer = new TransferToBank(bankAccNum ,receivedBankAccNum, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;
@@ -99,7 +98,7 @@ public class BankUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToInstapay("Bank" ,receivedUserName, amount);
+                transfer = new TransferToInstapay("Bank", bankAccNum, receivedUserName, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;  
@@ -114,7 +113,7 @@ public class BankUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToWallet(receivedPhoneNum, amount);
+                transfer = new TransferToWallet(bankAccNum, receivedPhoneNum, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;

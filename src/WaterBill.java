@@ -17,7 +17,7 @@ public class WaterBill extends WaterBillProvider {
             System.out.println("1-Bills History");
             System.out.println("2-Unpaid Bills");
             System.out.println("3-Pay Bills");
-            System.out.println("4-exit");
+            System.out.println("4-Return");
             Scanner sc = new Scanner(System.in);
         
             int choice = sc.nextInt();
@@ -39,12 +39,10 @@ public class WaterBill extends WaterBillProvider {
                     }
                     break;
                 case 4:
-                    //System.exit(0);
-                    break;
+                    return;
                 default:
                     System.out.println("invalid option");
                     break;
-                   
             }
             break;
         }

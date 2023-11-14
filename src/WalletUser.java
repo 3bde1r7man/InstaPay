@@ -70,7 +70,7 @@ public class WalletUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToWallet(receivedPhoneNum, amount);
+                transfer = new TransferToWallet(phoneNum, receivedPhoneNum, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;
@@ -87,7 +87,7 @@ public class WalletUser extends User {
                 //     System.out.println("Insufficient balance");
                 //     break;
                 // }
-                transfer = new TransferToInstapay("Wallet", receivedUserName, amount);
+                transfer = new TransferToInstapay("Wallet", phoneNum, receivedUserName, amount);
                 transfer.transfer();
                 LoadProfile();
                 break;  

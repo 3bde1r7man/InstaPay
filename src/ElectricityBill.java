@@ -1,13 +1,8 @@
 import java.util.Scanner;
 
 public class ElectricityBill extends ElectricityBillProvider {
-    //private double usage;
     private String sector;
-    public ElectricityBill ( String sector) {//double amount, String billType, String username,
-        // this.amount = amount;
-        // this.billType = billType;
-        // this.username = username;
-        //this.usage = usage;
+    public ElectricityBill ( String sector) {
         this.sector = sector;
     }
     public void ElectricityBillOpitions(){
@@ -16,7 +11,7 @@ public class ElectricityBill extends ElectricityBillProvider {
             System.out.println("1-Bills History");
             System.out.println("2-Unpaid Bills");
             System.out.println("3-Pay Bills");
-            System.out.println("4-exit");
+            System.out.println("4-Return");
             Scanner sc = new Scanner(System.in);
         
             int choice = sc.nextInt();
@@ -38,8 +33,7 @@ public class ElectricityBill extends ElectricityBillProvider {
                     }
                     break;
                 case 4:
-                    //System.exit(0);
-                    break;
+                    return;
                 default:
                     System.out.println("invalid option");
                     break;

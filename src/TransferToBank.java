@@ -1,7 +1,9 @@
 public class TransferToBank implements BankTransfer {
+    private String senderAccNum;
     private String receivedBankAccNum;
     private double amount;
-    TransferToBank(String receivedBankAccNum, double amount) {
+    TransferToBank(String senderAccNum, String receivedBankAccNum, double amount) {
+        this.senderAccNum = senderAccNum;
         this.receivedBankAccNum = receivedBankAccNum;
         this.amount = amount;
     }
@@ -13,7 +15,7 @@ public class TransferToBank implements BankTransfer {
             if(amount<= insta.maxAmountDaily)
             {
                 
-                if(BTransfer.transferMoney(receivedBankAccNum,amount))
+                if(BTransfer.transferMoney(senderAccNum ,receivedBankAccNum,amount))
                 {
                     System.out.println("Transaction Successfully");
                 }

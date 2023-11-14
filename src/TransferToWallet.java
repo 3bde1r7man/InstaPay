@@ -1,7 +1,9 @@
 public class TransferToWallet implements WalletTransfer, BankTransfer {
+    private String senderAccNum;
     private String receivedPhoneNum;
     private double amount;
-    TransferToWallet (String receivedPhoneNum, double amount) {
+    TransferToWallet (String senderAccNum, String receivedPhoneNum, double amount) {
+        this.senderAccNum = senderAccNum;
         this.receivedPhoneNum = receivedPhoneNum;
         this.amount = amount;
     }
@@ -11,7 +13,7 @@ public class TransferToWallet implements WalletTransfer, BankTransfer {
         if(WTransfer.validateWalletAcc(receivedPhoneNum)){
             if(amount<=insta.maxAmountDaily)
             {
-                if(WTransfer.transferMoney(receivedPhoneNum, amount))
+                if(WTransfer.transferMoney(senderAccNum, receivedPhoneNum, amount))
                 {
                     System.out.println("Transaction Successfully");
                 }

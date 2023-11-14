@@ -20,7 +20,7 @@ public class Database {
 
     public Database(String databaseName) {
         this.databaseName = databaseName;
-        url = "jdbc:sqlite:" + databaseName;
+        url = "jdbc:sqlite:D:/Java codes/InstaPay/src/instaPay.db"  ;
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {

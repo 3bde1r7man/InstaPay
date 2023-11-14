@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class InstaPay {
     public Database database;
+    public final String WALLET = "01111111111", BANK = "02222222222";
     public double maxAmountDaily=120000;
     private Register register;
     public void setRegister(Register r) {
