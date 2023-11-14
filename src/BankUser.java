@@ -3,8 +3,10 @@ import java.util.Scanner;
 
 public class BankUser extends User {
     private String bankAccNum;
+    private String phoneNum;
     private BankTransfer transfer;
     private BankProvider bank=new BankProvider();
+
     public BankUser(String userName, String password, String bankAccNum, String phoneNum) {
         this.userName = userName;
         this.password = password;
@@ -13,6 +15,16 @@ public class BankUser extends User {
         //this.balance = balance;
         this.phoneNum = phoneNum;
     }
+    
+    public String getBankAccNum() {
+        return bankAccNum;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+
 
     public void setBankTransfer(BankTransfer bt) {
         this.transfer = bt;

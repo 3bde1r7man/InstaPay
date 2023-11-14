@@ -13,8 +13,13 @@ public class WalletUser extends User {
     public void setWalletTransfer(WalletTransfer wt) {
         this.transfer = wt;
     }
+
     public void walletTransfer() {
         this.transfer.transfer();
+    }
+    
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
     public void LoadProfile() {
