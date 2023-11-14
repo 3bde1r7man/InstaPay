@@ -8,11 +8,11 @@ public class OTPService {
         System.out.println("OTP sent to " + phoneNum);
     }
 
-    public boolean verifyOTP(String receivedCode) {
-        return receivedCode.equals(generateOTP());
+    public boolean verifyOTP(String receivedCode, String phoneNum) {
+        return receivedCode.equals(generateOTP(phoneNum));
     }
 
-    public String generateOTP() {
+    public String generateOTP(String phoneNum) {
         return "123456";
     }
 

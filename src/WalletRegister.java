@@ -41,7 +41,7 @@ public class WalletRegister extends Register {
         OTPService otp = new OTPService(phoneNum);
         System.out.println("Enter the received code: ");
         String receivedCode = sc.next();
-        if(!otp.verifyOTP(receivedCode)){
+        if(!otp.verifyOTP(receivedCode, phoneNum)){
             System.out.println("Invalid code");
             return null;
         }
