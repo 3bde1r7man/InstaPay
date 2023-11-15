@@ -34,29 +34,30 @@ public class WalletUser extends User {
             int choice = sc.nextInt();
             switch(choice) {
                 case 1:
-                System.out.println("choose bill:");
-                System.out.println("1-Gas Bill");
-                System.out.println("2-Electricity Bill");
-                System.out.println("3-Water Bill");
-                int Billchoice = sc.nextInt();
+                    System.out.println("choose bill:");
+                    System.out.println("1-Gas Bill");
+                    System.out.println("2-Electricity Bill");
+                    System.out.println("3-Water Bill");
+                    int Billchoice = sc.nextInt();
 
-                switch ((Billchoice)) {
-                    case 1:
-                        GasBill gas=new GasBill("giza");
-                        gas.gasBillOpitions("wallet",phoneNum);
-                        break;
-                    case 2:
-                        ElectricityBill electricityBill=new ElectricityBill( "giza");
-                        electricityBill.ElectricityBillOpitions("wallet",phoneNum);
-                        break;
-                    case 3:
-                        WaterBill water=new WaterBill("giza");
-                        water.waterBillOpitions("wallet",phoneNum);
-                        break;
-                    default:
-                    System.err.println("invalid option!");
-                        break;
-                }
+                    switch ((Billchoice)) {
+                        case 1:
+                            GasBill gas=new GasBill("giza");
+                            gas.gasBillOpitions("wallet",phoneNum);
+                            break;
+                        case 2:
+                            ElectricityBill electricityBill=new ElectricityBill( "giza");
+                            electricityBill.ElectricityBillOpitions("wallet",phoneNum);
+                            break;
+                        case 3:
+                            WaterBill water=new WaterBill("giza");
+                            water.waterBillOpitions("wallet",phoneNum);
+                            break;
+                        default:
+                        System.err.println("invalid option!");
+                            break;
+                    }
+                    break;
                 case 2:
                 {
                     System.out.println("Enter phone number: ");

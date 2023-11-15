@@ -66,6 +66,7 @@ public class BankUser extends User {
                         System.err.println("invalid option!");
                         break;
                 }
+                break;
             case 2:
             {
                 System.out.println("Enter bank account number: ");
