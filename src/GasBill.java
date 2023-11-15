@@ -1,13 +1,8 @@
 import java.util.Scanner;
 
 public class GasBill extends GasBillProvider {
-    //private double usage;
     private String sector;
-    public GasBill(String sector) {//double amount, String billType, String username,
-        // this.amount = amount;
-        // this.billType = billType;
-        // this.username = username;
-        //this.usage = usage;
+    public GasBill(String sector) {
         this.sector = sector;
     }
 

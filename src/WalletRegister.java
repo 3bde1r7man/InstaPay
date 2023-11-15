@@ -31,7 +31,7 @@ public class WalletRegister extends Register {
                 System.out.println("Phone number must be 11 digits and start with 01.");
                 continue;
             }
-            WalletProvider walletAPI = new WalletProvider();
+            WalletProvider walletAPI = InstaPay.walletAPI;
             if(!walletAPI.validWalletACC(phoneNum)){
                 System.out.println("Invalid Wallet Account");
                 return null;

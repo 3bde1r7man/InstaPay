@@ -9,7 +9,7 @@ public class TransferToBank implements BankTransfer {
     }
     public void transfer() {
         InstaPay insta=new InstaPay();
-        BankProvider BTransfer=new BankProvider();
+        BankProvider BTransfer= InstaPay.bankAPI;
         if(BTransfer.validateBankAcc(receivedBankAccNum))
         {
             if(amount<= insta.maxAmountDaily)

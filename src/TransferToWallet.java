@@ -8,7 +8,7 @@ public class TransferToWallet implements WalletTransfer, BankTransfer {
         this.amount = amount;
     }
     public void transfer() {
-        WalletProvider WTransfer = new WalletProvider();
+        WalletProvider WTransfer = InstaPay.walletAPI;
         InstaPay insta=new InstaPay();
         if(WTransfer.validateWalletAcc(receivedPhoneNum)){
             if(amount<=insta.maxAmountDaily)

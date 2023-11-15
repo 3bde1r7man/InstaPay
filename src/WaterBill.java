@@ -1,13 +1,8 @@
 import java.util.Scanner;
 
 public class WaterBill extends WaterBillProvider {
-    //private double usage;
     private String sector;
-    public WaterBill(  String sector) {//double amount, String billType, String username,
-        // this.amount = amount;
-        // this.billType = billType;
-        // this.username = username;
-        //this.usage = usage;
+    public WaterBill(  String sector) {
         this.sector = sector;
     }
 

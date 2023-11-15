@@ -7,30 +7,29 @@ public class WalletProvider {
         walletAcc.put("03333333333", 300000.0);
         walletAcc.put("04444444444", 400000.0);
         walletAcc.put("05555555555", 500000.0);
+        walletAcc.put("01143022394", 600000.0);
+        walletAcc.put("1", 800000.0);
+        walletAcc.put("2", 700000.0);
+
     }
     public boolean validWalletACC(String phoneNum) {
         return true;
     }
     
     boolean transferMoney(String from, String to, double amount) {
+        System.out.println("Transfering " + amount + " from " + from + " to " + to);
+        System.out.println("Before transfer: " + walletAcc.get(from) + " " + walletAcc.get(to));
         walletAcc.put(from, walletAcc.get(from) - amount);
         walletAcc.put(to, walletAcc.get(to) + amount);
+        System.out.println("After transfer: " + walletAcc.get(from) + " " + walletAcc.get(to));
         return true;
     }
 
-    double accountBalance(String walletAccNum){
+    Double accountBalance(String walletAccNum){
         return walletAcc.get(walletAccNum);
     }
 
     boolean validateWalletAcc(String account){
         return true;
-    }
-    public static void main(String[] args) {
-        WalletProvider wallet = new WalletProvider();
-        System.out.println(wallet.accountBalance("01111111111"));
-        System.out.println(wallet.accountBalance("03333333333"));
-        wallet.transferMoney("01111111111", "03333333333", 1000);
-        System.out.println(wallet.accountBalance("01111111111"));
-        System.out.println(wallet.accountBalance("03333333333"));
     }
 }

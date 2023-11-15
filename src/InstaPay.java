@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class InstaPay {
-    public Database database;
+    public static Database database;
+    public static BankProvider bankAPI;
+    public static WalletProvider walletAPI;
     public final String WALLET = "01111111111", BANK = "02222222222";
     public double maxAmountDaily=120000;
     private Register register;
@@ -16,10 +18,14 @@ public class InstaPay {
     }
     public static void main(String[] args) {
         InstaPay instapay = new InstaPay();
-        instapay.database = new Database();
+        InstaPay.database = new Database();
+        InstaPay.bankAPI = new BankProvider();
+        InstaPay.walletAPI = new WalletProvider();
         Scanner sc = new Scanner(System.in);
-        // User u = new BankUser("1","2","1", 2000.0, "1");
-        // instapay.database.saveUser(u);
+        User u = new BankUser("1","1","2","1");
+        InstaPay.database.saveUser(u);
+        u = new WalletUser("2","2","2");
+        InstaPay.database.saveUser(u);
         while (true) {
             System.out.println("1. Register");
             System.out.println("2. Login");
@@ -40,7 +46,7 @@ public class InstaPay {
                                 System.out.println("Invalid Bank Account");
                                 break;
                             }
-                            instapay.database.saveUser(user);
+                            InstaPay.database.saveUser(user);
                             user.LoadProfile();
                             break;
                         }
@@ -52,7 +58,7 @@ public class InstaPay {
                                 System.out.println("Invalid Wallet Account");
                                 break;
                             }
-                            instapay.database.saveUser(user);
+                            InstaPay.database.saveUser(user);
                             user.LoadProfile();
                             break;
                         }
@@ -84,7 +90,6 @@ public class InstaPay {
                     System.out.println("Invalid choice");
                     break;
             }
-            sc.close();
         }
     }
         
