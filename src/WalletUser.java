@@ -38,6 +38,7 @@ public class WalletUser extends User {
                     System.out.println("1-Gas Bill");
                     System.out.println("2-Electricity Bill");
                     System.out.println("3-Water Bill");
+                    System.out.println("4-Return");
                     int Billchoice = sc.nextInt();
 
                     switch ((Billchoice)) {
@@ -52,6 +53,8 @@ public class WalletUser extends User {
                         case 3:
                             WaterBill water=new WaterBill("giza");
                             water.waterBillOpitions("wallet",phoneNum);
+                            break;
+                        case 4:
                             break;
                         default:
                         System.err.println("invalid option!");

@@ -13,11 +13,13 @@ public class ElectricityBillProvider implements BillProvider{
         bills.put("b3333", 400.0);
         bills.put("b4444", 500.0);
     }
-    
+    boolean validBillCode(String code){
+        return bills.containsKey(code);
+    }
     public void billsHistory(){
         for(String bill:payedBills.keySet())
         {
-            double value=bills.get(bill);
+            Double value=payedBills.get(bill);
             System.out.println(bill+": "+value);
         }
     }
@@ -33,6 +35,11 @@ public class ElectricityBillProvider implements BillProvider{
 
     public boolean payBill(String accType,String from,String code)
     {
+        if(!validBillCode(code))
+        {
+            System.err.println("Invalid bill code!");
+            return false;
+        }
         if(accType=="bank")
         {
             BankProvider bank=InstaPay.bankAPI;
