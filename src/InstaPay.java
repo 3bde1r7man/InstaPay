@@ -22,9 +22,12 @@ public class InstaPay {
         InstaPay.bankAPI = new BankProvider();
         InstaPay.walletAPI = new WalletProvider();
         Scanner sc = new Scanner(System.in);
+
         User u = new BankUser("1","1","2","1");
         InstaPay.database.saveUser(u);
         u = new WalletUser("2","2","2");
+        InstaPay.database.saveUser(u);
+        u = new BankUser("3","3","4", "4");
         InstaPay.database.saveUser(u);
         while (true) {
             System.out.println("1. Register");

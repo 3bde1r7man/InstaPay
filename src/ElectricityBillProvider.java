@@ -1,27 +1,12 @@
 import java.util.HashMap;
 
 public class ElectricityBillProvider implements BillProvider{
+    final String ELEC_BANK_ACC_NUM = "03333333333";
+    final String ELEC_WALLET_ACC_NUM = "03333333333";
     HashMap<String, Double> bills = new HashMap<String, Double>();
     HashMap<String, Double> payedBills = new HashMap<String, Double>();
-    public static HashMap<String, Double> bankAcc = new HashMap<String, Double>();
-    HashMap<String, Double> walletAcc = new HashMap<String, Double>();
 
     public ElectricityBillProvider(){
-
-        bankAcc.put("02222222222", 200000.0); // Instapay Bank Account
-        bankAcc.put("03333333333", 300000.0);
-        bankAcc.put("04444444444", 400000.0);
-        bankAcc.put("05555555555", 500000.0);
-        bankAcc.put("4", 600000.0);
-        bankAcc.put("2", 700000.0);
-
-        walletAcc.put("01111111111", 100000.0); // Instapay Wallet Account
-        walletAcc.put("03333333333", 300000.0);
-        walletAcc.put("04444444444", 400000.0);
-        walletAcc.put("05555555555", 500000.0);
-        walletAcc.put("01143022394", 600000.0);
-        walletAcc.put("1", 800000.0);
-        walletAcc.put("2", 700000.0);
 
         bills.put("b1111", 200.0); 
         bills.put("b2222", 300.0);
@@ -50,15 +35,32 @@ public class ElectricityBillProvider implements BillProvider{
     {
         if(accType=="bank")
         {
-            bankAcc.put(from, bankAcc.get(from) -bills.get(code));
-            payedBills.put(code,bills.get(code));
-            bills.remove(code);
+            BankProvider bank=InstaPay.bankAPI;
+            if(bank.transferMoney(from, ELEC_BANK_ACC_NUM, bills.get(code)))
+            {
+                payedBills.put(code,bills.get(code));
+                bills.remove(code);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         if(accType=="wallet")
         {
-            walletAcc.put(from, walletAcc.get(from) -bills.get(code));
-            payedBills.put(code,bills.get(code));
-            bills.remove(code);
+            WalletProvider wallet=InstaPay.walletAPI;
+            if(wallet.transferMoney(from, ELEC_WALLET_ACC_NUM, bills.get(code)))
+            {
+                payedBills.put(code,bills.get(code));
+                bills.remove(code);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
         return true;
     }

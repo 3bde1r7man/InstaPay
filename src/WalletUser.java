@@ -74,7 +74,8 @@ public class WalletUser extends User {
                     String receivedUserName = sc.next();
                     System.out.println("Enter amount: ");
                     double amount = sc.nextDouble();
-                    transfer = new TransferToInstapay("Wallet", phoneNum, receivedUserName, amount);
+                    String[] AccNum = {phoneNum};
+                    transfer = new TransferToInstapay("Wallet", AccNum, receivedUserName, amount);
                     transfer.transfer();
                     break;  
                 }
