@@ -52,7 +52,7 @@ public class BankUser extends User {
                 switch ((Billchoice)) {
                     case 1:
                         GasBill gas=new GasBill("giza");
-                        gas.gasBillOpitions("bank",bankAccNum);
+                        gas.gasBillOpitions("bank", bankAccNum);
                         break;
                     case 2:
                         ElectricityBill electricityBill=new ElectricityBill( "giza");
@@ -85,7 +85,8 @@ public class BankUser extends User {
                 String receivedUserName = sc.next();
                 System.out.println("Enter amount: ");
                 double amount = sc.nextDouble();
-                transfer = new TransferToInstapay("Bank", bankAccNum, receivedUserName, amount);
+                String[] AccNum = {phoneNum, bankAccNum};
+                transfer = new TransferToInstapay("Bank", AccNum, receivedUserName, amount);
                 transfer.transfer();
                 break;  
             }
@@ -95,7 +96,7 @@ public class BankUser extends User {
                 String receivedPhoneNum = sc.next();
                 System.out.println("Enter amount: ");
                 double amount = sc.nextDouble();
-                transfer = new TransferToWallet(bankAccNum, receivedPhoneNum, amount);
+                transfer = new TransferToWallet(phoneNum, receivedPhoneNum, amount);
                 transfer.transfer();
                 break;
             }

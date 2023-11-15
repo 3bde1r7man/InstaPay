@@ -1,10 +1,10 @@
 public class TransferToInstapay implements WalletTransfer, BankTransfer {
     private String senderAccType;
-    private String senderAccNum;
+    private String []senderAccNum;
     private String receivedUserName;
     private double amount;
 
-    TransferToInstapay(String senderAccType, String senderAccNum, String receivedUserName, double amount) {
+    TransferToInstapay(String senderAccType, String []senderAccNum, String receivedUserName, double amount) {
         this.senderAccType = senderAccType;
         this.senderAccNum = senderAccNum;
         this.receivedUserName = receivedUserName;
@@ -22,7 +22,7 @@ public class TransferToInstapay implements WalletTransfer, BankTransfer {
             WalletProvider WTransfer = InstaPay.walletAPI;
             if (WTransfer.validateWalletAcc(user.phoneNum)) {
                 if (amount <= insta.maxAmountDaily) {
-                    if (WTransfer.transferMoney(senderAccNum, user.phoneNum, amount)) {
+                    if (WTransfer.transferMoney(senderAccNum[0], user.phoneNum, amount)) { // sender phone num
                         System.out.println("Transaction Successfully");
                     } else {
                         System.err.println("Transaction Error");
@@ -37,7 +37,7 @@ public class TransferToInstapay implements WalletTransfer, BankTransfer {
             if (senderAccType == "Wallet") {
                 WalletProvider WTransfer = InstaPay.walletAPI;
                 if (amount <= insta.maxAmountDaily){
-                    if (WTransfer.transferMoney(senderAccNum, insta.WALLET, amount)) {
+                    if (WTransfer.transferMoney(senderAccNum[0], insta.WALLET, amount)) {
                         BankProvider BTransfer = InstaPay.bankAPI;
                         BankUser bankUser = (BankUser) user;
                         if (BTransfer.transferMoney(insta.BANK, bankUser.getBankAccNum(), amount)) {
@@ -53,12 +53,12 @@ public class TransferToInstapay implements WalletTransfer, BankTransfer {
                 else {
                     System.err.println("Maximum amount transaction exceeded");
                 }
-            } else if (senderAccType == "bank") {
+            } else if (senderAccType == "Bank") {
                 BankProvider BTransfer = InstaPay.bankAPI;
                 if (BTransfer.validateBankAcc(user.phoneNum)) {
                     if (amount <= insta.maxAmountDaily) {
-
-                        if (BTransfer.transferMoney(senderAccNum, user.phoneNum, amount)) {
+                        BankUser bankUser = (BankUser) user;
+                        if (BTransfer.transferMoney(senderAccNum[1], bankUser.getBankAccNum(), amount)) {
                             System.out.println("Transaction Successfully");
                         } else {
                             System.err.println("Transaction Error");
