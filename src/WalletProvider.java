@@ -3,6 +3,9 @@ import java.util.HashMap;
 public class WalletProvider {
     HashMap<String, Double> walletAcc = new HashMap<String, Double>();
     WalletProvider() {
+        initDummy();
+    }
+    private void initDummy(){
         walletAcc.put("01111111111", 100000.0); // Instapay Wallet Account
         walletAcc.put("03333333333", 300000.0); // elec Wallet acc
         walletAcc.put("04444444444", 400000.0); // gas Wallet acc
@@ -10,7 +13,6 @@ public class WalletProvider {
         walletAcc.put("01143022394", 600000.0);
         walletAcc.put("1", 800000.0);
         walletAcc.put("2", 700000.0);
-
     }
     public boolean validWalletACC(String phoneNum) {
         return walletAcc.containsKey(phoneNum);

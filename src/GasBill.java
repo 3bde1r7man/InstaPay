@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GasBill {
     private String sector;
-    BillProvider bill=new GasBillProvider();
+    BillProvider bill=InstaPay.gasProvider;
     public GasBill(String sector) {
         this.sector = sector;
     }

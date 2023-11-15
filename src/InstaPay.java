@@ -1,9 +1,14 @@
 import java.util.Scanner;
 
 public class InstaPay {
+    // dummy data
     public static Database database;
     public static BankProvider bankAPI;
     public static WalletProvider walletAPI;
+    public static ElectricityBillProvider electricityProvider;
+    public static GasBillProvider gasProvider;
+    public static WaterBillProvider waterProvider;
+    // ---------------------------------
     public final String WALLET = "01111111111", BANK = "02222222222";
     public double maxAmountDaily=120000;
     private Register register;
@@ -17,10 +22,15 @@ public class InstaPay {
         return database.getUser(userName);
     }
     public static void main(String[] args) {
+        // dummy data
         InstaPay instapay = new InstaPay();
         InstaPay.database = new Database();
         InstaPay.bankAPI = new BankProvider();
         InstaPay.walletAPI = new WalletProvider();
+        InstaPay.electricityProvider = new ElectricityBillProvider();
+        InstaPay.gasProvider = new GasBillProvider();
+        InstaPay.waterProvider = new WaterBillProvider();
+        // ---------------------------------
         Scanner sc = new Scanner(System.in);
 
         User u = new BankUser("1","1","2","1");

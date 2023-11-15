@@ -3,6 +3,10 @@ import java.util.HashMap;
 public class BankProvider {
     HashMap<String, Double> bankAcc = new HashMap<String, Double>();
     public BankProvider() {
+        initDummy();
+    }
+
+    private void initDummy(){
         bankAcc.put("02222222222", 200000.0); // Instapay Bank Account
         bankAcc.put("03333333333", 300000.0); // elec bank acc
         bankAcc.put("04444444444", 400000.0); // gas bank acc
@@ -10,6 +14,7 @@ public class BankProvider {
         bankAcc.put("4", 600000.0);
         bankAcc.put("2", 700000.0);
     }
+    
     public boolean validBankACC(String bankAccNum, String phoneNum) {
         return bankAcc.containsKey(bankAccNum);
     }
