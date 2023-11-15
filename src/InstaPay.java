@@ -30,15 +30,17 @@ public class InstaPay {
         InstaPay.electricityProvider = new ElectricityBillProvider();
         InstaPay.gasProvider = new GasBillProvider();
         InstaPay.waterProvider = new WaterBillProvider();
-        // ---------------------------------
-        Scanner sc = new Scanner(System.in);
-
         User u = new BankUser("1","1","2","1");
         InstaPay.database.saveUser(u);
         u = new WalletUser("2","2","2");
         InstaPay.database.saveUser(u);
-        u = new BankUser("3","3","4", "4");
+        u = new WalletUser("3","3", "3");
         InstaPay.database.saveUser(u);
+        u = new BankUser("4","4","4","4");
+        InstaPay.database.saveUser(u);
+        // ---------------------------------
+        Scanner sc = new Scanner(System.in);
+
         while (true) {
             System.out.println("1. Register");
             System.out.println("2. Login");
@@ -105,6 +107,5 @@ public class InstaPay {
             }
         }
     }
-        
 }
 
