@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
-public class ElectricityBill extends ElectricityBillProvider {
+public class ElectricityBill{
     private String sector;
+    public BillProvider bill=new ElectricityBillProvider();
     public ElectricityBill ( String sector) {
         this.sector = sector;
     }
-    public void ElectricityBillOpitions(){
+    public void ElectricityBillOpitions(String accType,String accNum){
         while(true)
         {
             System.out.println("1-Bills History");
@@ -15,7 +16,7 @@ public class ElectricityBill extends ElectricityBillProvider {
             Scanner sc = new Scanner(System.in);
         
             int choice = sc.nextInt();
-            BillProvider bill=new ElectricityBillProvider();
+            
 
             switch ((choice)) {
                 case 1:
@@ -25,7 +26,9 @@ public class ElectricityBill extends ElectricityBillProvider {
                     bill.unpaidBills();
                     break;
                 case 3:
-                    if(bill.payBill()){
+                    System.out.println("Enter bill code: ");
+                    String code=sc.next();
+                    if(bill.payBill(accType,accNum,code)){
                         System.out.println("Paid Successfully");
                     }
                     else{

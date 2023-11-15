@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class GasBill extends GasBillProvider {
+public class GasBill {
     private String sector;
+    BillProvider bill=new GasBillProvider();
     public GasBill(String sector) {
         this.sector = sector;
     }
 
-    public void gasBillOpitions(){
+    public void gasBillOpitions(String accType,String accNum){
         while(true)
         {
             System.out.println("1-Bills History");
@@ -16,7 +17,7 @@ public class GasBill extends GasBillProvider {
             Scanner sc = new Scanner(System.in);
         
             int choice = sc.nextInt();
-            BillProvider bill=new GasBillProvider();
+            
 
             switch ((choice)) {
                 case 1:
@@ -26,7 +27,9 @@ public class GasBill extends GasBillProvider {
                     bill.unpaidBills();
                     break;
                 case 3:
-                    if(bill.payBill()){
+                    System.out.println("Enter bill code: ");
+                    String code=sc.next();
+                    if(bill.payBill(accType,accNum,code)){
                         System.out.println("Paid Successfully");
                     }
                     else{

@@ -22,8 +22,6 @@ public class BankUser extends User {
         return phoneNum;
     }
 
-
-
     public void setBankTransfer(BankTransfer bt) {
         this.transfer = bt;
     }
@@ -54,15 +52,15 @@ public class BankUser extends User {
                 switch ((Billchoice)) {
                     case 1:
                         GasBill gas=new GasBill("giza");
-                        gas.gasBillOpitions();
+                        gas.gasBillOpitions("bank",bankAccNum);
                         break;
                     case 2:
                         ElectricityBill electricityBill=new ElectricityBill( "giza");
-                        electricityBill.ElectricityBillOpitions();
+                        electricityBill.ElectricityBillOpitions("bank",bankAccNum);
                         break;
                     case 3:
                         WaterBill water=new WaterBill("giza");
-                        water.waterBillOpitions();
+                        water.waterBillOpitions("bank",bankAccNum);
                         break;
                     default:
                         System.err.println("invalid option!");

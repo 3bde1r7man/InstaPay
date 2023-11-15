@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class WaterBill extends WaterBillProvider {
+public class WaterBill{
     private String sector;
+BillProvider bill=new WaterBillProvider();
     public WaterBill(  String sector) {
         this.sector = sector;
     }
 
-    public void waterBillOpitions(){
+    public void waterBillOpitions(String accType,String accNum){
         while(true)
         {
             System.out.println("1-Bills History");
@@ -14,10 +15,8 @@ public class WaterBill extends WaterBillProvider {
             System.out.println("3-Pay Bills");
             System.out.println("4-Return");
             Scanner sc = new Scanner(System.in);
-        
-            int choice = sc.nextInt();
-            BillProvider bill=new WaterBillProvider();
 
+            int choice = sc.nextInt();
             switch ((choice)) {
                 case 1:
                     bill.billsHistory();
@@ -26,7 +25,9 @@ public class WaterBill extends WaterBillProvider {
                     bill.unpaidBills();
                     break;
                 case 3:
-                    if(bill.payBill()){
+                    System.out.println("Enter bill code: ");
+                    String code=sc.next();
+                    if(bill.payBill(accType,accNum,code)){
                         System.out.println("Paid Successfully");
                     }
                     else{

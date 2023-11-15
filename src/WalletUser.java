@@ -43,15 +43,15 @@ public class WalletUser extends User {
                 switch ((Billchoice)) {
                     case 1:
                         GasBill gas=new GasBill("giza");
-                        gas.gasBillOpitions();
+                        gas.gasBillOpitions("wallet",phoneNum);
                         break;
                     case 2:
                         ElectricityBill electricityBill=new ElectricityBill( "giza");
-                        electricityBill.ElectricityBillOpitions();
+                        electricityBill.ElectricityBillOpitions("wallet",phoneNum);
                         break;
                     case 3:
                         WaterBill water=new WaterBill("giza");
-                        water.waterBillOpitions();
+                        water.waterBillOpitions("wallet",phoneNum);
                         break;
                     default:
                     System.err.println("invalid option!");
