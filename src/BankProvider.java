@@ -13,6 +13,7 @@ public class BankProvider {
         bankAcc.put("05555555555", 500000.0); // water bank acc
         bankAcc.put("4", 600000.0);
         bankAcc.put("2", 700000.0);
+        bankAcc.put("5", 900000.0);
     }
     
     public boolean validBankACC(String bankAccNum, String phoneNum) {

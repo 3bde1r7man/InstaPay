@@ -42,6 +42,29 @@ public class InstaPay {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+            /*
+             * to register in a bank account, you need to provide:
+             * 1. username as you want
+             * 2. password as you want  "you can use @Abc1234"
+             * 3 phone number you can use 01234567891
+             * 4. bank account number you can use 5
+             * 5. OTP code you can use is 123456
+             * --------------------------------------------
+             * to register in a wallet account, you need to provide:
+             * 1. username as you want
+             * 2. password as you want  "you can use @Abc1234"
+             * 3. phone number you can use 01234567891
+             * 4. OTP code you can use is 123456
+             * --------------------------------------------
+             * to login as bank User, you need to provide:
+             * 1. username 1
+             * 2. password 1
+             * --------------------------------------------
+             * to login as wallet User, you need to provide:
+             * 1. username 2
+             * 2. password 2
+             */
+
             System.out.println("1. Register");
             System.out.println("2. Login");
             System.out.println("3. Exit");

@@ -10,7 +10,7 @@ public class WalletProvider {
         walletAcc.put("03333333333", 300000.0); // elec Wallet acc
         walletAcc.put("04444444444", 400000.0); // gas Wallet acc
         walletAcc.put("05555555555", 500000.0); // water Wallet acc
-        walletAcc.put("01143022394", 600000.0);
+        walletAcc.put("01234567891", 900000.0);
         walletAcc.put("1", 700000.0);
         walletAcc.put("2", 700000.0);
         walletAcc.put("3", 900000.0);

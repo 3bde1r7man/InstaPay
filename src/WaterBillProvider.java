@@ -14,7 +14,7 @@ public class WaterBillProvider implements BillProvider{
         bills.put("b3333", 400.0);
         bills.put("b4444", 500.0);
     }
-    boolean validBillCode(String code){
+    public boolean validBillCode(String code){
         return bills.containsKey(code);
     }
     public void billsHistory(){
